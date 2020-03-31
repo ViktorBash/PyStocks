@@ -1,0 +1,19 @@
+To Do:
+Make a good matplotlib chart with the data
+integrate that matplotlib chart into the GUI
+
+use NYSE or Nasdaq (preferably both) and make a system so that when a company name is typed in instead of a ticker
+symbol, it still will pull up the info. To Do this:
+compile list of stock ticker symbols and list of names (from same csv file)
+put them together in a dictionary
+create a simple function in yfinance that returns the ticker symbol when given the stockname (this will either
+hold the dictionary, or unpickle it or just make the dictionary)
+add an if statement to each thing like stock_up_or_down saying if it's not a ticker symbol, go to the above function
+and get the ticker symbol
+
+write a unit test for the yfinance_part.py script
+
+
+Far off:
+Raising exceptions when a stock name that doesn't exist is typed in
+Machine learning prediction
