@@ -23,6 +23,7 @@ import plotly.graph_objects as go
 import plotly
 import py
 
+
 # This is our class that will get data for a stock and use pandas to create/read csv files
 class YahooStockInfo:
     def __init__(self, name):  # Initiates object and calls other functions to make more attributes
@@ -40,28 +41,29 @@ class YahooStockInfo:
     def file_name(self):
         return self.name + "_data_base.csv"
 
-    def createData(self):  # Creates csv file holding info of the stock
+    def createData(self):  # Creates csv file inside Databases directory for holding info of the stock
         hist_1y = self.Yahoo_Obj.history(period="1y")
         data_frame = pd.DataFrame(data=hist_1y)
-        data_frame.to_csv(self.file_name)
+        self.path_for_csv = "Databases\\" + self.file_name
+        data_frame.to_csv(self.path_for_csv)
 
     def StockPriceHigh1Y(self):  # Finds the highest price since 1Y and sets it as an attribute
-        data = pd.read_csv(self.file_name)
+        data = pd.read_csv(self.path_for_csv)
         stockprices = np.array(data["Close"])
         self.stock_high_1y = stockprices.max()
 
     def StockPriceLow1Y(self):  # Finds the lowest price since 1Y and sets it as an attribute
-        data = pd.read_csv(self.file_name)
+        data = pd.read_csv(self.path_for_csv)
         stockprices = np.array(data["Close"])
         self.stock_low_1y = stockprices.min()
 
     def LatestPrice(self):  # Finds the price of closing from yesterday and sets it as an attribute
-        data = pd.read_csv(self.file_name)
+        data = pd.read_csv(self.path_for_csv)
         stockprices = np.array(data["Close"])
         self.stock_closing_price = stockprices[-1]
 
     def GoingUpOrDown(self):  # Returns if the stock has had more up or down days
-        data = pd.read_csv(self.file_name)
+        data = pd.read_csv(self.path_for_csv)
         stockprices = np.array(data["Close"])
         up_day = 0
         down_day = 0
@@ -85,7 +87,9 @@ class YahooStockInfo:
 def main():  # Used for on the fly testing to see if things work.
 
     UBER = YahooStockInfo("UBER")
-    UBER.ReturnGraph()
+    SPY = YahooStockInfo("SPY")
+    # UBER.ReturnGraph()
+
 
 
     # Testing, plotly and matplotlib graphs. Non-essential and just for testing things out

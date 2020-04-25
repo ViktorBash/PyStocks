@@ -14,10 +14,11 @@ from yfinance_part import YahooStockInfo
 
 import matplotlib as mpl
 import matplotlib.dates
-matplotlib.use("Qt5Agg")
 import pandas as pd
 from matplotlib import style
 import matplotlib.pyplot as plt
+
+matplotlib.use("Qt5Agg")
 
 
 # This class holds the whole GUI for the project
