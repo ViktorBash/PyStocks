@@ -9,19 +9,9 @@ Display a graph (Matplotlib part or/and pyqt5)
 Create a line for or predict the stock price.
 It would be nice to be all wrapped up in a GUI
 """
-import matplotlib
 import yfinance as yf
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as pyplot
-from matplotlib import style
-from matplotlib import dates
-import datetime
-from datetime import date
-import matplotlib.dates
-import plotly.graph_objects as go
-import plotly
-import py
 
 
 # This is our class that will get data for a stock and use pandas to create/read csv files
@@ -84,16 +74,24 @@ class YahooStockInfo:
         return pd.DataFrame(data=hist_1y)
 
 
-def main():  # Used for on the fly testing to see if things work.
+def main():  # Used for dynamic testing of this script.
 
-    UBER = YahooStockInfo("UBER")
-    SPY = YahooStockInfo("SPY")
+    # UBER = YahooStockInfo("UBER")
+    # SPY = YahooStockInfo("SPY")
     # UBER.ReturnGraph()
 
-
-
-    # Testing, plotly and matplotlib graphs. Non-essential and just for testing things out
+    # Makes ploty and matplotlib graphs for testing. Not implemented into the final GUI
     """
+    # Required imports:
+    import matplotlib.pyplot as pyplot
+    from matplotlib import style
+    from matplotlib import dates
+    import datetime
+    from datetime import date
+    import matplotlib.dates
+    import plotly.graph_objects as go
+    import plotly
+    import py
     SPY = YahooStockInfo("SPY")
     print(SPY.stock_high_1y)
     print(SPY.GoingUpOrDown())
@@ -111,27 +109,9 @@ def main():  # Used for on the fly testing to see if things work.
     # This shows a tock chart using matplotlib (not that great)
     style.use("ggplot")
     matplotlib.pyplot.plot_date(data["Date"], data["Close"])
-    pyplot.show()"""
+    pyplot.show()
+    """
 
 
 if __name__ == "__main__":
     main()
-
-
-"""
-SPY = yf.Ticker("SPY")
-short_hist = SPY.history(period="14d")
-long_hist = SPY.history(period="max")
-
-
-
-
-# spy_file.write(long_hist)
-# spy_file.close()
-print(date.today())# df = pd.DataFrame(data=long_hist)
-# df.to_csv("spy_data.csv")
-
-
-style.use("ggplot")
-# pyplot.scatter(df["Stock"], df["Close"])
-pyplot.show()"""

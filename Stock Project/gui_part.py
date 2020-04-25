@@ -146,23 +146,22 @@ class PyStock(QMainWindow):
         # canvas = Canvas(self, width=8, height=4)
         # self.generalLayout.addWidget(canvas, 4, 1)  # This adds a non functional graph to the actual pyqt5 area
 
-    @pyqtSlot()
+    @pyqtSlot()  # Plots our matplotlib graph if the button for a graph is clicked
     def makeGraph(self):
-        print("HI")
         mpl.rcParams["toolbar"] = "None"
         plt.style.use("dark_background")
-        data = pd.read_csv(PyStock.global_stock_name + "_data_base.csv")
+        data = pd.read_csv("Databases\\" + PyStock.global_stock_name + "_data_base.csv")
         style.use("ggplot")
         plt.plot(data["Date"], data["Close"], color="black")
         plt.ioff()
         plt.ylabel("Price")
         plt.xlabel("1 Year")
         plt.title(PyStock.global_stock_name)
-        print("HI3")
         plt.show()
 
 
-# This class used to plot matplotlib graph, but it is simpler to just make a @pyqtslot function to graph it.
+# This class used to plot matplotlib graph, but it is simpler to just make a @pyqtslot function to graph it. The code
+# is still here in case we want to use it for some reason
 """
 This used these imports previously:
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -207,5 +206,5 @@ def main():  # Creates instance of GUI and shows it, and allows us to exit it
     sys.exit(pystock_.exec())
 
 
-if __name__ == "__main__":  # Simple if statement in case this script is imported to another script later on
+if __name__ == "__main__":
     main()

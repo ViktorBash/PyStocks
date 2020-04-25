@@ -3,6 +3,7 @@ Will return name when given ticker symbol of a company's stock, (for companies o
 To use: import the script, then:
 Object_name = TickerToName(ticker)
 Then just do Object_name.self.company_name and that gives the company name
+Example: Inputting in GOOG returns Alphabet Inc
 """
 
 import pandas as pd
@@ -44,8 +45,8 @@ class TickerToName:
 
 # Testing environment
 def main():
-    bob = TickerToName("BBQ")
-    print(bob.company_name)
+    BBQ_corp = TickerToName("BBQ")
+    print(BBQ_corp.company_name)
 
 
 if __name__ == "__main__":
