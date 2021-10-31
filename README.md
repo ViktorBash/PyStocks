@@ -1,5 +1,5 @@
 # PyStocks
-This is a GUI program that displays info about stocks when the ticker of the stock is typed in. It also shows a graph of the stock if you click the graph button.
+See info on stocks! This project is built with Python/PyQt5 and Matplotlib. Type in a stock ticker to get started and see data/charts.
 
 # How It Works:
 There are three Python scripts used to make this all work. One is the GUI script, another fetches stock data and the last converts a ticker to the actual name of the company. Furthermore, when a stock ticker is inputted to the GUI, it sends it to the yfinance script which returns all the info that is displayed on the GUI. Several modules tie this all together, including:
