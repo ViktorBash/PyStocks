@@ -108,17 +108,17 @@ class PyStock(QMainWindow):
         YahooObject = YahooStockInfo(stock_name)
 
         # 1 Year high
-        self.stock_high_1y = QLabel("1 Year High $" + str(YahooObject.stock_high_1y))
+        self.stock_high_1y = QLabel("1 Year High $" + str(round(YahooObject.stock_high_1y, 2)))
         self.stock_high_1y.setFont(info_font)
         self.generalLayout.addWidget(self.stock_high_1y, 1, 1)
 
         # 1 Year low
-        self.stock_low_1y = QLabel("1 Year Low $" + str(YahooObject.stock_low_1y))
+        self.stock_low_1y = QLabel("1 Year Low $" + str(round(YahooObject.stock_low_1y, 2)))
         self.stock_low_1y.setFont(info_font)
         self.generalLayout.addWidget(self.stock_low_1y, 2, 1)
 
         # Price on closing yesterday
-        self.stock_closing_price = QLabel("Price From Closing Yesterday: $" + str(YahooObject.stock_closing_price))
+        self.stock_closing_price = QLabel("Price From Closing Yesterday: $" + str(round(YahooObject.stock_closing_price, 2)))
         self.stock_closing_price.setFont(info_font)
         self.generalLayout.addWidget(self.stock_closing_price, 3, 1)
 
